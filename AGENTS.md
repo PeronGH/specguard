@@ -1,6 +1,6 @@
 # Repository Guidelines
 
-This repository is for `specguard` which itself is dogfooding a spec-first, agent-native workflow. `specguard` aims to be able to init/check/fmt/lint/test the spec directory.
+This repository is for `specguard` which itself is dogfooding a spec-first, agent-native workflow. `specguard` aims to be able to init/check/fmt/test the spec directory.
 
 ## Workflow
 
@@ -8,7 +8,7 @@ This repository is for `specguard` which itself is dogfooding a spec-first, agen
 
 1) **Spec first**: update or add spec before changing production code.
 2) **Tests next**: add/adjust tests that encode the spec (failing before the fix, passing after).
-3) **Code last**: implement the smallest change that makes tests pass.
+3) **Code last**: implement the spec fully.
 
 **Drift rule**
 
