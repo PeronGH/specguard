@@ -55,3 +55,14 @@ links:
   tc: [TC-500, TC-501]
 ---
 ```
+
+## Commit conventions
+
+- Commit messages must follow `type(scope): summary`.
+- Commits that change spec files, spec-driven tests, or implementation behavior must include a Git trailer listing related spec IDs.
+- For unrelated changes (for example repository meta docs), the `Specs:` trailer is optional.
+- Trailer format:
+
+```text
+Specs: HLS-001, LLS-001, TC-001
+```
