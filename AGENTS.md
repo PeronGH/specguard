@@ -1,6 +1,6 @@
 # Repository Guidelines
 
-This repository is for `sepcguard` which itself is dogfooding a spec-first, agent-native workflow. `sepcguard` aims to be able to init/check/fmt/lint/test the spec directory.
+This repository is for `specguard` which itself is dogfooding a spec-first, agent-native workflow. `specguard` aims to be able to init/check/fmt/lint/test the spec directory.
 
 ## Workflow
 
