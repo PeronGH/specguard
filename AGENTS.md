@@ -19,7 +19,7 @@ This repository is for `specguard` which itself is dogfooding a spec-first, agen
 
 All specs live under `/spec`:
 
-- `/spec/hls/` — High-level spec (Markdown). Behavior-oriented. May contain Gherkin code blocks.
+- `/spec/hls/` — High-level spec (Markdown). Behavior-oriented. Must contain Gherkin code blocks.
 - `/spec/lls/` — Low-level spec (Markdown). Implementation-facing constraints + interfaces + invariants.
 - `/spec/tc/` — Test cases as executable Markdown written for an agent; link to code tests when they exist, otherwise include clear step-by-step validation instructions.
 - `/spec/shared/` — Shared Markdown fragments referenced by specs/tests (for reusable setup, rules, or procedures).
@@ -51,7 +51,7 @@ id: LLS-120
 title: Invite acceptance
 status: draft
 links:
-  hls: [HLS-010-S01]
+  hls: [HLS-010]
   tc: [TC-500, TC-501]
 ---
 ```
