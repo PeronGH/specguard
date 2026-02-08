@@ -33,6 +33,8 @@ The following directories must exist:
 - `spec/lls`
 - `spec/tc`
 
+Directory presence is required, but directories are allowed to be empty.
+
 # File discovery rules
 
 - Only `.md` files under `spec/hls`, `spec/lls`, and `spec/tc` are considered.

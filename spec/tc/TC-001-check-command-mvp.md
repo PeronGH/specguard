@@ -19,10 +19,17 @@ Validate that `specguard check` enforces the MVP contract.
 # Case 1: Success path
 
 1. Ensure `spec/hls`, `spec/lls`, and `spec/tc` exist.
-2. Ensure each directory contains at least one valid `.md` spec file with valid front matter.
+2. Ensure any present `.md` spec files have valid front matter and naming.
 3. Run `specguard check`.
 4. Verify exit code is `0`.
 5. Verify output contains success indication and no `ERROR` lines.
+
+# Case 1b: Empty required directories are valid
+
+1. In a temp workspace, create `spec/hls`, `spec/lls`, and `spec/tc` with no `.md` files.
+2. Run `specguard check`.
+3. Verify exit code is `0`.
+4. Verify output contains success indication and no `ERROR` lines.
 
 # Case 2: Missing required directory
 

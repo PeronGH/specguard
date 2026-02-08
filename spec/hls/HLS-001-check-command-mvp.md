@@ -15,6 +15,7 @@ links:
 
 - The tool reads spec files under `spec/`.
 - The tool validates required structure and metadata.
+- Empty required spec directories are allowed and do not fail validation.
 - The tool returns a non-zero exit code when violations exist.
 - The tool prints actionable diagnostics with file path context.
 - The tool does not modify files in MVP.
@@ -32,7 +33,14 @@ Feature: Validate spec workspace with a check-only MVP
 
   Scenario: Workspace is fully compliant
     Given a repository with spec/hls, spec/lls, and spec/tc directories
-    And each required spec file has valid naming and front matter
+    And each present spec file has valid naming and front matter
+    When I run "specguard check"
+    Then the process exits with code 0
+    And output indicates success
+
+  Scenario: Required directories are empty
+    Given a repository with spec/hls, spec/lls, and spec/tc directories
+    And those directories contain no spec files
     When I run "specguard check"
     Then the process exits with code 0
     And output indicates success
