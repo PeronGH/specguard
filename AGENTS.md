@@ -61,6 +61,12 @@ links:
 - Commit messages must follow `type(scope): summary`.
 - Commits that change spec files, spec-driven tests, or implementation behavior must include a Git trailer listing related spec IDs.
 - For unrelated changes (for example repository meta docs), the `Specs:` trailer is optional.
+- Choose the smallest relevant set of IDs for `Specs:` instead of listing every linked spec.
+- If you implement an unimplemented feature or behavior, include related `LLS-...` IDs.
+- If you run tests/manual executable TC steps as part of the change, include related `TC-...` IDs.
+- Include `HLS-...` IDs only when:
+  - You are changing/adding HLS files directly, or
+  - You are writing/updating LLS directly from HLS requirements and need explicit traceability.
 - Trailer format:
 
 ```text
