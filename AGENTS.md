@@ -25,7 +25,7 @@ All specs live under `/spec`:
   - Must contain Gherkin code blocks.
   - One HLS can correspond to multiple LLS files.
 - `/spec/lls/`
-  - Must be implementable in one go.
+  - Must be implementable in one go; otherwise split into multiple LLS files.
   - Low-level spec in Markdown.
   - Implementation-facing.
   - Defines constraints, interfaces, and invariants.
@@ -35,7 +35,7 @@ All specs live under `/spec`:
   - Each TC should use one shared precondition.
   - Link to code tests when they exist.
   - Otherwise include clear step-by-step validation instructions.
-  - All cases in a TC must share same test environments.
+  - All cases in a TC must share same test environments; otherwise split into multiple TC files.
 - `/spec/shared/`
   - Shared Markdown fragments referenced by specs/tests.
   - Use for reusable setup, rules, or procedures.
