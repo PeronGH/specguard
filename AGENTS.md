@@ -19,10 +19,26 @@ This repository is for `specguard` which itself is dogfooding a spec-first, agen
 
 All specs live under `/spec`:
 
-- `/spec/hls/` — High-level spec (Markdown). Behavior-oriented. Must contain Gherkin code blocks.
-- `/spec/lls/` — Low-level spec (Markdown). Implementation-facing constraints + interfaces + invariants.
-- `/spec/tc/` — Test cases as executable Markdown written for an agent; link to code tests when they exist, otherwise include clear step-by-step validation instructions.
-- `/spec/shared/` — Shared Markdown fragments referenced by specs/tests (for reusable setup, rules, or procedures).
+- `/spec/hls/`
+  - High-level spec in Markdown.
+  - Behavior-oriented.
+  - Must contain Gherkin code blocks.
+  - One HLS can correspond to multiple LLS files.
+- `/spec/lls/`
+  - Must be implementable in one go.
+  - Low-level spec in Markdown.
+  - Implementation-facing.
+  - Defines constraints, interfaces, and invariants.
+  - One LLS can have multiple TC files.
+- `/spec/tc/`
+  - Test cases as executable Markdown written for an agent.
+  - Each TC should use one shared precondition.
+  - Link to code tests when they exist.
+  - Otherwise include clear step-by-step validation instructions.
+  - All cases in a TC must share same test environments.
+- `/spec/shared/`
+  - Shared Markdown fragments referenced by specs/tests.
+  - Use for reusable setup, rules, or procedures.
 
 ## Spec conventions
 
@@ -59,16 +75,13 @@ links:
 ## Commit conventions
 
 - Commit messages must follow `type(scope): summary`.
-- Commits that change spec files, spec-driven tests, or implementation behavior must include a Git trailer listing related spec IDs.
-- For unrelated changes (for example repository meta docs), the `Specs:` trailer is optional.
-- Choose the smallest relevant set of IDs for `Specs:` instead of listing every linked spec.
-- If you implement an unimplemented feature or behavior, include related `LLS-...` IDs.
-- If you run tests/manual executable TC steps as part of the change, include related `TC-...` IDs.
-- Include `HLS-...` IDs only when:
-  - You are changing/adding HLS files directly, or
-  - You are writing/updating LLS directly from HLS requirements and need explicit traceability.
-- Trailer format:
+- Use `Specs:` trailer for any commit that changes spec files, spec-driven tests, or implementation behavior; optional for unrelated repo/meta changes.
+- Keep `Specs:` minimal:
+  - include `LLS-...` when implementing behavior,
+  - include `TC-...` when tests/manual TC steps are run,
+  - include `HLS-...` only when editing HLS directly or writing LLS from HLS.
+- Trailer format example:
 
 ```text
-Specs: HLS-001, LLS-001, TC-001
+Specs: LLS-001, TC-001
 ```
